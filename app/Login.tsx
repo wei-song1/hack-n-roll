@@ -21,6 +21,7 @@ interface LoginProps {
   onToggleScreen: () => void;
   score: number;
   highScore: number;
+  lastScore: number;          // NEW
   gameIndex: number;
   onGameSuccess: () => void;
   onExpire: () => void;
@@ -31,6 +32,7 @@ function Login({
   onToggleScreen,
   score,
   highScore,
+  lastScore,
   gameIndex,
   onGameSuccess,
   onExpire,
@@ -61,6 +63,8 @@ function Login({
         return <ElevatorPage onSuccess={onGameSuccess} />;
       case 11:
         return <ResumeEditorPage onSuccess={onGameSuccess} />;
+      default:
+        return null;
     }
   };
 
@@ -122,9 +126,13 @@ function Login({
               Forgot Password (Alumni) <br />
               Register MFA <br />
             </label>
+
+            {/* Scores */}
             <label className="block text-red-500 text-sm">
               Highest authentication attempt: {highScore} <br />
+              Latest authentication attempt: {lastScore}
             </label>
+
             <div className="h-20"></div>
             <label className="text-gray-400 text-sm">Made By Wei Song</label>
           </form>

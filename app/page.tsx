@@ -8,32 +8,37 @@ import Authenticator from "./Authenticator";
 export default function Home() {
   const [showScreen2, setShowScreen2] = useState(false);
   const [score, setScore] = useState(0);
-  const [gameIndex, setGameIndex] = useState(9); 
-  // 0 = Authenticator, 1 = Grid, 2 = Dropout, 3 = LinkedIn, 4 = Alarm, 
-  // 5 = Tinder, 6 = Captcha, 7 = Grid 2, 8 = Telegram, 9 = Grid Escape, 
-  // 10 = Elavator, 11 = Resume Editor
+  const [gameIndex, setGameIndex] = useState(9);
+  // 0 = Authenticator, 1 = Grid, 2 = Dropout, 3 = LinkedIn, 4 = Alarm,
+  // 5 = Tinder, 6 = Captcha, 7 = Grid 2, 8 = Telegram, 9 = Grid Escape,
+  // 10 = Elevator, 11 = Resume Editor
   const [highScore, setHighScore] = useState(0);
+  const [lastScore, setLastScore] = useState(0); // NEW: store latest attempt
 
   const NUM_GAMES = 12;
 
   const getRandomNextGameIndex = (currentIndex: number) => {
-    const availableIndices = Array.from({ length: NUM_GAMES }, (_, i) => i).filter(
-      (i) => i !== currentIndex
-    );
+    const availableIndices = Array.from(
+      { length: NUM_GAMES },
+      (_, i) => i
+    ).filter((i) => i !== currentIndex);
     const randomIdx = Math.floor(Math.random() * availableIndices.length);
     return availableIndices[randomIdx];
   };
 
   const handleGameSuccess = () => {
     setScore((prev) => prev + 1);
-    // setGameIndex((prev) => (prev + 1) % NUM_GAMES);
     setGameIndex((prev) => getRandomNextGameIndex(prev));
   };
 
   const resetEverything = () => {
+    // update high score if this run beat it
     setHighScore((prevHighScore) =>
       score > prevHighScore ? score : prevHighScore
     );
+    // remember this run's score
+    setLastScore(score);
+    // reset for next run
     setScore(0);
     setGameIndex(1);
     setShowScreen2(false);
@@ -47,6 +52,7 @@ export default function Home() {
     setShowScreen2((prev) => {
       const next = !prev;
       if (!next) {
+        // going back to login: finalize scores
         resetEverything();
       }
       return next;
@@ -83,6 +89,7 @@ export default function Home() {
           onToggleScreen={handleToggleScreen}
           score={score}
           highScore={highScore}
+          lastScore={lastScore}      // NEW
           gameIndex={gameIndex}
           onGameSuccess={handleGameSuccess}
           onExpire={handleExpire}
