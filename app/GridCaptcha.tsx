@@ -54,7 +54,7 @@ const GridCaptcha: React.FC<GridCaptchaProps> = ({ onSuccess }) => {
 
   return (
     <div className="flex flex-col items-center gap-4">
-      <label>Choose BIZ2 Bus Stop</label>
+      <h1 className="text-black font-bold">Choose BIZ2 Bus Stop</h1>
 
       <div className="grid grid-cols-4 gap-2">
         {images.map((src, index) => (

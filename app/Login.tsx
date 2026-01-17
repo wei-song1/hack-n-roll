@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import AuthenticatorPage from "./AuthenticatorPage";
 import GridCaptcha from "./GridCaptcha";
 import DropoutPage from "./DropoutPage";
+import CountDown from "./Countdown";
 
 interface LoginProps {}
 
@@ -11,46 +12,54 @@ function Login(props: LoginProps) {
   const [showScreen2, setShowScreen2] = useState(false);
   const [score, setScore] = useState(0);
   const [gameIndex, setGameIndex] = useState(1); // 0 = Authenticator, 1 = Grid, 2 = Dropout
+  const [highScore, setHighScore] = useState(0);
 
   const NUM_GAMES = 3;
 
   const handleGameSuccess = () => {
-    // Increment score
     setScore((prev) => prev + 1);
-    // Move to next game, looping (0 -> 1 -> 2 -> 0 -> ...)
     setGameIndex((prev) => (prev + 1) % NUM_GAMES);
   };
 
-  const handleToggle = () => {
-    setShowScreen2((prev) => !prev);
-    if (showScreen2) {
-      // going back to login screen, reset everything
-      resetEverything();
-    }
-  };
-
   const resetEverything = () => {
+    // use *current* score & highScore
+    setHighScore((prevHighScore) => {
+      return score > prevHighScore ? score : prevHighScore;
+    });
+
     setScore(0);
     setGameIndex(1);
+    setShowScreen2(false);
+  };
+
+  const handleToggle = () => {
+    setShowScreen2((prev) => {
+      const next = !prev;
+      if (!next) {
+        // going back to login screen
+        resetEverything();
+      }
+      return next;
+    });
+  };
+
+  const handleExpire = () => {
+    resetEverything();
   };
 
   const renderCurrentGame = () => {
     if (gameIndex === 0) {
-      // If AuthenticatorPage also has a "success" moment,
-      // you can add an onSuccess prop as well.
       return <AuthenticatorPage />;
     }
     if (gameIndex === 1) {
       return <GridCaptcha onSuccess={handleGameSuccess} />;
     }
-    // gameIndex === 2
     return <DropoutPage onSuccess={handleGameSuccess} />;
   };
 
   return (
     <div className="w-full max-w-md p-6">
       {!showScreen2 ? (
-        // Login Screen
         <>
           <h1 className="text-2xl font-bold mb-4 text-black">
             Fakeversity Of Singapore
@@ -106,18 +115,18 @@ function Login(props: LoginProps) {
               Forgot Password (Alumni) <br />
               Register MFA <br />
             </label>
+            <label className="block text-red-500 text-sm">
+              Highest authentication attempt: {highScore} <br />
+            </label>
           </form>
         </>
       ) : (
-        // Game Screen
         <div>
           <h1 className="text-2xl font-bold mb-4 text-black">
             Fakeversity Of Singapore
           </h1>
 
-          <h1 className="text-2xl font-bold mb-4 text-black">
-            Score: {score}
-          </h1>
+          <h1 className="text-xl mb-4 text-black">Score: {score}</h1>
 
           <div className="h-5" />
 
@@ -128,13 +137,11 @@ function Login(props: LoginProps) {
 
           <div className="h-5" />
 
-          {/* Games go here */}
           {renderCurrentGame()}
 
           <div className="flex flex-col items-center vscreen space-y-4">
-            <label className="text-black">1:00 minutes left</label>
+            <CountDown seconds={60} onExpire={handleExpire} />
 
-            {/* CANCEL -> BACK TO SCREEN 1 */}
             <button
               type="button"
               onClick={handleToggle}
