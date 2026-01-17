@@ -26,8 +26,8 @@ export default function Home() {
 
   const handleGameSuccess = () => {
     setScore((prev) => prev + 1);
-    setGameIndex((prev) => (prev + 1) % NUM_GAMES);
-    // setGameIndex((prev) => getRandomNextGameIndex(prev));
+    // setGameIndex((prev) => (prev + 1) % NUM_GAMES);
+    setGameIndex((prev) => getRandomNextGameIndex(prev));
   };
 
   const resetEverything = () => {

@@ -28,7 +28,7 @@ const TelegramPage: React.FC<TelegramPageProps> = ({ onSuccess }) => {
       </h1>
 
       {/* Centered "Telegram" page */}
-      <div className="w-72 h-124 bg-[#17212b] rounded-2xl shadow-lg flex flex-col overflow-hidden text-white">
+      <div className="w-72 h-100 bg-[#17212b] rounded-2xl shadow-lg flex flex-col overflow-hidden text-white">
         {/* Header */}
         <div className="h-12 bg-[#17212b] border-b border-[#1f2933] flex items-center px-3 gap-2">
           <div className="w-8 h-8 rounded-full bg-[#2b5278] flex items-center justify-center text-xs font-semibold">
