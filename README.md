@@ -1,3 +1,7 @@
+# Unauthentication
+## The Future Of Useless Authentication App
+Created as part of Hack & Roll 2026 by Lim Wei Song.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
