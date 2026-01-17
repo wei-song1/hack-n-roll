@@ -8,10 +8,10 @@ import Authenticator from "./Authenticator";
 export default function Home() {
   const [showScreen2, setShowScreen2] = useState(false);
   const [score, setScore] = useState(0);
-  const [gameIndex, setGameIndex] = useState(1); // 0 = Authenticator, 1 = Grid, 2 = Dropout, 3 = LinkedIn, 4 = Alarm, 5 = Tinder, 6 = Captcha, 7 = Grid 2
+  const [gameIndex, setGameIndex] = useState(9); // 0 = Authenticator, 1 = Grid, 2 = Dropout, 3 = LinkedIn, 4 = Alarm, 5 = Tinder, 6 = Captcha, 7 = Grid 2, 8 = Telegram, 9 = Grid Escape
   const [highScore, setHighScore] = useState(0);
 
-  const NUM_GAMES = 8;
+  const NUM_GAMES = 10;
 
   const getRandomNextGameIndex = (currentIndex: number) => {
     const availableIndices = Array.from({ length: NUM_GAMES }, (_, i) => i).filter(

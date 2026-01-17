@@ -66,7 +66,9 @@ const profiles: Profile[] = [
 ];
 
 const TinderPage: React.FC<TinderPageProps> = ({ onSuccess }) => {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(() =>
+    Math.floor(Math.random() * profiles.length)
+  );
 
   const currentProfile = profiles[index];
 

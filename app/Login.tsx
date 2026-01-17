@@ -11,6 +11,8 @@ import LinkedInPage from "./LinkedInPage";
 import AlarmPage from "./AlarmPage";
 import TinderPage from "./TinderPage";
 import CaptchaPage from "./CaptchaPage";
+import TelegramPage from "./TelegramPage";
+import GridEscapePage from "./GridEscapePage";
 
 interface LoginProps {
   showScreen2: boolean;
@@ -49,6 +51,10 @@ function Login({
         return <CaptchaPage onSuccess={onGameSuccess} />;
       case 7:
         return <GridCaptcha2 onSuccess={onGameSuccess} />;
+      case 8:
+        return <TelegramPage onSuccess={onGameSuccess} />;
+      case 9:
+        return <GridEscapePage onSuccess={onGameSuccess} />;
     }
   };
 
