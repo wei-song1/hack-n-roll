@@ -9,6 +9,7 @@ import DropoutPage from "./DropoutPage";
 import LinkedInPage from "./LinkedInPage";
 import AlarmPage from "./AlarmPage";
 import TinderPage from "./TinderPage";
+import CaptchaPage from "./CaptchaPage";
 
 interface LoginProps {
   showScreen2: boolean;
@@ -41,8 +42,10 @@ function Login({
         return <LinkedInPage onSuccess={onGameSuccess} />;
       case 4:
         return <AlarmPage onSuccess={onGameSuccess} />;
-      default:
+      case 5:
         return <TinderPage onSuccess={onGameSuccess} />;
+      case 6:
+        return <CaptchaPage onSuccess={onGameSuccess} />;
     }
   };
 
@@ -133,12 +136,13 @@ function Login({
           <div className="flex flex-col items-center vscreen space-y-4">
             <CountDown seconds={60} onExpire={onExpire} />
 
+            <div className="h-5"></div>
             <button
               type="button"
               onClick={onToggleScreen}
-              className="bg-gray-400 text-white font-semibold py-2 px-4 rounded hover:bg-gray-500 transition-colors"
+              className="bg-gray-400 text-white font-semibold py-1 px-4 rounded hover:bg-red-300 transition-colors"
             >
-              Try logging in with another method
+              Try logging in with another method?
             </button>
           </div>
         </div>
