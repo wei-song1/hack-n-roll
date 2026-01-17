@@ -1,36 +1,54 @@
 "use client"
 
-import React, { useState } from "react";
+import React, { useState }from 'react';
+import Popup from '../Popup';
 import Image from "next/image";
 
-function Test() {
-  const [showScreen2, setShowScreen2] = useState(false);
+function test() {
+    const [showPopUp, setShowPopUp] = useState(false)
 
-  const handleToggle = () => {
-    setShowScreen2((prev) => !prev);
-  };
+    return (
+        <div>
+            <button onClick={() => setShowPopUp(prev => !prev)}>
+                <Image
+                    src="/banner.png"
+                    alt="Vercel logomark"
+                    width={100}
+                    height={100}
+                />
+            </button>
 
-  return (
-    <div>
-        <button onClick={handleToggle}>
-            {showScreen2 ? "Login" : "Cancel"}
-        </button>
-
-        {showScreen2 ? (
-            // Screen 2
-            <div style={{ marginTop: "16px" }}>
-            <h1>Screen 2</h1>
-            {/* Your Screen 2 content goes here */}
-            </div>
-        ) : (
-            // Screen 1
-            <div style={{ marginTop: "16px" }}>
-            <h1>Screen 1</h1>
-            {/* Your Screen 1 content goes here */}
-            </div>
-        )}
-    </div>
-  );
+            {/* Authenticator App Home Screen */}
+            <Popup showPopUp={showPopUp} closePopUp={()=>setShowPopUp(false)}>
+                <div className="w-90 h-160 bg-white rounded-lg shadow-lg">
+                    <div className="w-90 h-14 bg-blue-500 rounded-lg flex items-center justify-center">
+                        <Image
+                            className="dark:invert"
+                            src="/hamburger-svgrepo-com.svg"
+                            alt="Vercel logomark"
+                            width={24}
+                            height={24}
+                        />
+                        <label className="block text-center font-bold text-2xl">Authenticator</label>
+                        <Image
+                            className="dark:invert"
+                            src="/magnifying-glass-backup-svgrepo-com.svg"
+                            alt="Vercel logomark"
+                            width={28}
+                            height={28}
+                        />
+                        <Image
+                            className="dark:invert"
+                            src="/plus-large-svgrepo-com.svg"
+                            alt="Vercel logomark"
+                            width={28}
+                            height={28}
+                        />
+                    </div>
+                </div>
+            </Popup>
+        </div>
+    )
 }
 
-export default Test;
+export default test;
