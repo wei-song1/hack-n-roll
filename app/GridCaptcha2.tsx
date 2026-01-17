@@ -12,28 +12,28 @@ const GridCaptcha: React.FC<GridCaptchaProps> = ({ onSuccess }) => {
   const [result, setResult] = useState<"correct" | "incorrect" | null>(null);
 
   const images = [
-    "/row-1-column-1.png",
-    "/row-1-column-2.png",
-    "/row-1-column-3.png",
-    "/row-1-column-4.png",
-    "/row-2-column-1.png",
-    "/row-2-column-2.png",
-    "/row-2-column-3.png",
-    "/row-2-column-4.png",
-    "/row-3-column-1.png",
-    "/row-3-column-2.png",
-    "/row-3-column-3.png",
-    "/row-3-column-4.png",
-    "/row-4-column-1.png",
-    "/row-4-column-2.png",
-    "/row-4-column-3.png",
-    "/row-4-column-4.png",
+    "/1-column-1.png",
+    "/1-column-2.png",
+    "/1-column-3.png",
+    "/1-column-4.png",
+    "/2-column-1.png",
+    "/2-column-2.png",
+    "/2-column-3.png",
+    "/2-column-4.png",
+    "/3-column-1.png",
+    "/3-column-2.png",
+    "/3-column-3.png",
+    "/3-column-4.png",
+    "/4-column-1.png",
+    "/4-column-2.png",
+    "/4-column-3.png",
+    "/4-column-4.png",
   ];
 
   // Only indices 0, 4, 5, 8, 9 are allowed.
   // Any selected index outside this set → incorrect.
   const correctPattern = (selection: boolean[]) => {
-    const validIndices = [0, 4, 5, 8, 9];
+    const validIndices = [3];
 
     // Collect all selected indices
     const selectedIndices = selection
@@ -66,7 +66,7 @@ const GridCaptcha: React.FC<GridCaptchaProps> = ({ onSuccess }) => {
 
   return (
     <div className="flex flex-col items-center gap-4">
-      <h1 className="text-black font-bold">Choose BIZ2 Bus Stop</h1>
+      <h1 className="text-black font-bold">Choose COM4</h1>
 
       <div className="grid grid-cols-4 gap-2">
         {images.map((src, index) => (

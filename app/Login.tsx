@@ -5,6 +5,7 @@ import CountDown from "./Countdown";
 
 import AuthenticatorPage from "./AuthenticatorPage";
 import GridCaptcha from "./GridCaptcha";
+import GridCaptcha2 from "./GridCaptcha2";
 import DropoutPage from "./DropoutPage";
 import LinkedInPage from "./LinkedInPage";
 import AlarmPage from "./AlarmPage";
@@ -46,6 +47,8 @@ function Login({
         return <TinderPage onSuccess={onGameSuccess} />;
       case 6:
         return <CaptchaPage onSuccess={onGameSuccess} />;
+      case 7:
+        return <GridCaptcha2 onSuccess={onGameSuccess} />;
     }
   };
 
