@@ -13,6 +13,8 @@ import TinderPage from "./TinderPage";
 import CaptchaPage from "./CaptchaPage";
 import TelegramPage from "./TelegramPage";
 import GridEscapePage from "./GridEscapePage";
+import ElevatorPage from "./ElavatorPage";
+import ResumeEditorPage from "./ResumeEditorPage";
 
 interface LoginProps {
   showScreen2: boolean;
@@ -55,6 +57,10 @@ function Login({
         return <TelegramPage onSuccess={onGameSuccess} />;
       case 9:
         return <GridEscapePage onSuccess={onGameSuccess} />;
+      case 10:
+        return <ElevatorPage onSuccess={onGameSuccess} />;
+      case 11:
+        return <ResumeEditorPage onSuccess={onGameSuccess} />;
     }
   };
 

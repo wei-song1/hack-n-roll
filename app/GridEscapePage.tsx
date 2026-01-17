@@ -120,7 +120,7 @@ const GridEscapePage: React.FC<GridEscapePageProps> = ({ onSuccess }) => {
         <button
           type="button"
           onClick={() => movePlayer(-1, 0)}
-          className="w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 flex items-center justify-center"
+          className="w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-black"
         >
           ↑
         </button>
@@ -128,7 +128,7 @@ const GridEscapePage: React.FC<GridEscapePageProps> = ({ onSuccess }) => {
           <button
             type="button"
             onClick={() => movePlayer(0, -1)}
-            className="w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 flex items-center justify-center"
+            className="w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-black"
           >
             ←
           </button>
@@ -136,7 +136,7 @@ const GridEscapePage: React.FC<GridEscapePageProps> = ({ onSuccess }) => {
           <button
             type="button"
             onClick={() => movePlayer(0, 1)}
-            className="w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 flex items-center justify-center"
+            className="w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-black"
           >
             →
           </button>
@@ -144,7 +144,7 @@ const GridEscapePage: React.FC<GridEscapePageProps> = ({ onSuccess }) => {
         <button
           type="button"
           onClick={() => movePlayer(1, 0)}
-          className="w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 flex items-center justify-center"
+          className="w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-black"
         >
           ↓
         </button>
