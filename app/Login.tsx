@@ -7,6 +7,7 @@ import AuthenticatorPage from "./AuthenticatorPage";
 import GridCaptcha from "./GridCaptcha";
 import DropoutPage from "./DropoutPage";
 import LinkedInPage from "./LinkedInPage";
+import AlarmPage from "./AlarmPage";
 
 interface LoginProps {
   showScreen2: boolean;
@@ -35,8 +36,10 @@ function Login({
         return <GridCaptcha onSuccess={onGameSuccess} />;
       case 2:
         return <DropoutPage onSuccess={onGameSuccess} />;
-      default:
+      case 3:
         return <LinkedInPage onSuccess={onGameSuccess} />;
+      default:
+        return <AlarmPage onSuccess={onGameSuccess} />;
     }
   };
 
