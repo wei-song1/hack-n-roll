@@ -8,14 +8,14 @@ import Authenticator from "./Authenticator";
 export default function Home() {
   const [showScreen2, setShowScreen2] = useState(false);
   const [score, setScore] = useState(0);
-  const [gameIndex, setGameIndex] = useState(9);
+  const [gameIndex, setGameIndex] = useState(14);
   // 0 = Authenticator, 1 = Grid, 2 = Dropout, 3 = LinkedIn, 4 = Alarm,
   // 5 = Tinder, 6 = Captcha, 7 = Grid 2, 8 = Telegram, 9 = Grid Escape,
-  // 10 = Elevator, 11 = Resume Editor
+  // 10 = Elevator, 11 = Resume Editor, 12 = Face Scan, 13 = Shouting Game, 14 = Rate Prof
   const [highScore, setHighScore] = useState(0);
   const [lastScore, setLastScore] = useState(0); // NEW: store latest attempt
 
-  const NUM_GAMES = 12;
+  const NUM_GAMES = 15;
 
   const getRandomNextGameIndex = (currentIndex: number) => {
     const availableIndices = Array.from(

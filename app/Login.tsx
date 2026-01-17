@@ -15,6 +15,9 @@ import TelegramPage from "./TelegramPage";
 import GridEscapePage from "./GridEscapePage";
 import ElevatorPage from "./ElavatorPage";
 import ResumeEditorPage from "./ResumeEditorPage";
+import FaceScanPage from "./FaceScanPage";
+import ShoutGamePage from "./ShoutGamePage";
+import ProfRatingPage from "./ProfRatingPage";
 
 interface LoginProps {
   showScreen2: boolean;
@@ -63,6 +66,12 @@ function Login({
         return <ElevatorPage onSuccess={onGameSuccess} />;
       case 11:
         return <ResumeEditorPage onSuccess={onGameSuccess} />;
+      case 12:
+        return <FaceScanPage onSuccess={onGameSuccess} />;
+      case 13:
+        return <ShoutGamePage onSuccess={onGameSuccess} />;
+      case 14:
+        return <ProfRatingPage onSuccess={onGameSuccess} />;
       default:
         return null;
     }

@@ -7,11 +7,14 @@ import TelegramPage from "../TelegramPage";
 import GridEscapePage from "../GridEscapePage";
 import ElevatorPage from "../ElavatorPage";
 import ResumeEditorPage from "../ResumeEditorPage";
+import FaceScanPage from "../FaceScanPage";
+import ShoutGamePage from "../ShoutGamePage";
+import ProfRatingPage from "../ProfRatingPage";
 
 const LinkedInPage = () => {
   return (
     <div>
-        <ResumeEditorPage />
+        <ProfRatingPage />
     </div>
   );
 };
