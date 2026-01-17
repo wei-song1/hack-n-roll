@@ -1,20 +1,22 @@
 "use client";
 
 import React, { useState } from "react";
+import CountDown from "./Countdown";
+
 import AuthenticatorPage from "./AuthenticatorPage";
 import GridCaptcha from "./GridCaptcha";
 import DropoutPage from "./DropoutPage";
-import CountDown from "./Countdown";
+import LinkedInPage from "./LinkedInPage";
 
 interface LoginProps {}
 
 function Login(props: LoginProps) {
   const [showScreen2, setShowScreen2] = useState(false);
   const [score, setScore] = useState(0);
-  const [gameIndex, setGameIndex] = useState(1); // 0 = Authenticator, 1 = Grid, 2 = Dropout
+  const [gameIndex, setGameIndex] = useState(1); // 0 = Authenticator, 1 = Grid, 2 = Dropout, 3 = LinkedIn
   const [highScore, setHighScore] = useState(0);
 
-  const NUM_GAMES = 3;
+  const NUM_GAMES = 4;
 
   const handleGameSuccess = () => {
     setScore((prev) => prev + 1);
@@ -22,7 +24,6 @@ function Login(props: LoginProps) {
   };
 
   const resetEverything = () => {
-    // use *current* score & highScore
     setHighScore((prevHighScore) => {
       return score > prevHighScore ? score : prevHighScore;
     });
@@ -47,14 +48,17 @@ function Login(props: LoginProps) {
     resetEverything();
   };
 
-  const renderCurrentGame = () => {
-    if (gameIndex === 0) {
-      return <AuthenticatorPage />;
+  const renderCurrentGame = () => {    
+    switch (gameIndex) {
+      case 0:
+        return <AuthenticatorPage />;
+      case 1:
+        return <GridCaptcha onSuccess={handleGameSuccess} />;
+      case 2:
+        return <DropoutPage onSuccess={handleGameSuccess} />;
+      default:
+        return <LinkedInPage onSuccess={handleGameSuccess} />;
     }
-    if (gameIndex === 1) {
-      return <GridCaptcha onSuccess={handleGameSuccess} />;
-    }
-    return <DropoutPage onSuccess={handleGameSuccess} />;
   };
 
   return (

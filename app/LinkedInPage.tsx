@@ -13,10 +13,14 @@ interface Job {
   logo?: string;
 }
 
+interface LinkedInPageProps {
+  onSuccess?: () => void;
+}
+
 const mockJobs: Job[] = [
   {
     id: 1,
-    title: "Software Engineer",
+    title: "Software Engineer Intern",
     company: "Fakeversity of Singapore",
     location: "Singapore · Hybrid",
     type: "Full-time",
@@ -25,7 +29,7 @@ const mockJobs: Job[] = [
   },
   {
     id: 2,
-    title: "Frontend Developer",
+    title: "Janitor Internship",
     company: "EduTech Labs",
     location: "Remote",
     type: "Contract",
@@ -34,7 +38,7 @@ const mockJobs: Job[] = [
   },
   {
     id: 3,
-    title: "Product Manager",
+    title: "Product Fry Cook Handler",
     company: "CampusWorks",
     location: "Singapore · On-site",
     type: "Full-time",
@@ -43,16 +47,16 @@ const mockJobs: Job[] = [
   },
 ];
 
-const LinkedInPage = () => {
+const LinkedInPage: React.FC<LinkedInPageProps> = ({ onSuccess }) => {
   const [selectedJobId, setSelectedJobId] = useState<number | null>(null);
 
   const handleApply = (job: Job) => {
-    // For now, just log. You can open a modal, navigate, etc.
     console.log("Apply clicked for:", job);
+    if (onSuccess) onSuccess(); // ← go to next game
   };
 
   return (
-    <div className="min-h-screen bg-[#f3f2ef] flex justify-center py-6">
+    <div className="flex justify-center py-6">
       <section className="bg-white rounded-md shadow-sm border border-gray-200 w-full max-w-2xl overflow-hidden">
         <div className="border-b border-gray-200 px-3 py-2 flex items-center justify-between">
           <p className="text-sm text-gray-700">
