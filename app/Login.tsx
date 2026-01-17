@@ -8,6 +8,7 @@ import GridCaptcha from "./GridCaptcha";
 import DropoutPage from "./DropoutPage";
 import LinkedInPage from "./LinkedInPage";
 import AlarmPage from "./AlarmPage";
+import TinderPage from "./TinderPage";
 
 interface LoginProps {
   showScreen2: boolean;
@@ -38,8 +39,10 @@ function Login({
         return <DropoutPage onSuccess={onGameSuccess} />;
       case 3:
         return <LinkedInPage onSuccess={onGameSuccess} />;
-      default:
+      case 4:
         return <AlarmPage onSuccess={onGameSuccess} />;
+      default:
+        return <TinderPage onSuccess={onGameSuccess} />;
     }
   };
 
@@ -104,6 +107,8 @@ function Login({
             <label className="block text-red-500 text-sm">
               Highest authentication attempt: {highScore} <br />
             </label>
+            <div className="h-20"></div>
+            <label className="text-gray-400 text-sm">Made By Wei Song</label>
           </form>
         </>
       ) : (
