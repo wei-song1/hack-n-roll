@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Login from "./Login";
+import Authenticator from "./Authenticator";
 
 export default function Home() {
   return (
@@ -14,6 +15,10 @@ export default function Home() {
                     className="object-cover"
                     priority
                 />
+                
+                <div className="absolute bottom-0 left-0 m-6">
+                    <Authenticator />
+                </div>
             </div>
         </div>
 

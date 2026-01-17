@@ -3,13 +3,18 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-const GridTest = () => {
+interface DropoutPageProps {
+  onSuccess?: () => void;
+}
+
+const DropoutPage: React.FC<DropoutPageProps> = ({ onSuccess }) => {
   const [name, setName] = useState("");
   const [result, setResult] = useState<"success" | "error" | null>(null);
 
   const handleSubmit = () => {
     if (name.trim().length > 0) {
       setResult("success");
+      if (onSuccess) onSuccess();
     } else {
       setResult("error");
     }
@@ -31,16 +36,14 @@ const GridTest = () => {
         />
       </div>
 
-      {/* Input */}
       <input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        className="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-500 text-black"
         placeholder="Type your name"
       />
 
-      {/* Submit button */}
       <button
         type="button"
         onClick={handleSubmit}
@@ -49,7 +52,6 @@ const GridTest = () => {
         Submit
       </button>
 
-      {/* Feedback */}
       {result === "success" && (
         <p className="text-green-600 mt-2">Signature accepted.</p>
       )}
@@ -60,4 +62,4 @@ const GridTest = () => {
   );
 };
 
-export default GridTest;
+export default DropoutPage;

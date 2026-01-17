@@ -1,20 +1,56 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
+import AuthenticatorPage from "./AuthenticatorPage";
+import GridCaptcha from "./GridCaptcha";
+import DropoutPage from "./DropoutPage";
 
 interface LoginProps {}
 
 function Login(props: LoginProps) {
   const [showScreen2, setShowScreen2] = useState(false);
+  const [score, setScore] = useState(0);
+  const [gameIndex, setGameIndex] = useState(1); // 0 = Authenticator, 1 = Grid, 2 = Dropout
+
+  const NUM_GAMES = 3;
+
+  const handleGameSuccess = () => {
+    // Increment score
+    setScore((prev) => prev + 1);
+    // Move to next game, looping (0 -> 1 -> 2 -> 0 -> ...)
+    setGameIndex((prev) => (prev + 1) % NUM_GAMES);
+  };
 
   const handleToggle = () => {
     setShowScreen2((prev) => !prev);
+    if (showScreen2) {
+      // going back to login screen, reset everything
+      resetEverything();
+    }
+  };
+
+  const resetEverything = () => {
+    setScore(0);
+    setGameIndex(1);
+  };
+
+  const renderCurrentGame = () => {
+    if (gameIndex === 0) {
+      // If AuthenticatorPage also has a "success" moment,
+      // you can add an onSuccess prop as well.
+      return <AuthenticatorPage />;
+    }
+    if (gameIndex === 1) {
+      return <GridCaptcha onSuccess={handleGameSuccess} />;
+    }
+    // gameIndex === 2
+    return <DropoutPage onSuccess={handleGameSuccess} />;
   };
 
   return (
     <div className="w-full max-w-md p-6">
       {!showScreen2 ? (
-        /* ---------- SCREEN 1: LOGIN FORM ---------- */
+        // Login Screen
         <>
           <h1 className="text-2xl font-bold mb-4 text-black">
             Fakeversity Of Singapore
@@ -47,7 +83,6 @@ function Login(props: LoginProps) {
 
             <div className="h-3" />
 
-            {/* SIGN IN -> GO TO SCREEN 2 */}
             <button
               type="button"
               onClick={handleToggle}
@@ -74,43 +109,40 @@ function Login(props: LoginProps) {
           </form>
         </>
       ) : (
-        /* ---------- SCREEN 2: AFTER SIGN IN ---------- */
+        // Game Screen
         <div>
-            <h1 className="text-2xl font-bold mb-4 text-black">
-                Fakeversity Of Singapore
-            </h1>
+          <h1 className="text-2xl font-bold mb-4 text-black">
+            Fakeversity Of Singapore
+          </h1>
 
-            <div className="h-20" />
+          <h1 className="text-2xl font-bold mb-4 text-black">
+            Score: {score}
+          </h1>
 
-            <h2 className="text-black text-sm">
-                This application requires a 2nd factor authentication <br/>
-                for security reasons.
-            </h2>
+          <div className="h-5" />
 
-            <div className="h-5" />
+          <h2 className="text-black text-sm">
+            This application requires a 2nd factor authentication <br />
+            for security reasons.
+          </h2>
 
-            <h2 className="text-black text-sm">
-                Open your Marohard Authenticator app and tap the <br/>
-                number you see below to sign in.
-            </h2>
+          <div className="h-5" />
 
-            <div className="h-10" />
+          {/* Games go here */}
+          {renderCurrentGame()}
 
-            <div className="flex justify-center">
-                {/* Placeholder text */}
-                <h2 className="text-black text-2xl">
-                67
-                </h2>
-            </div>
+          <div className="flex flex-col items-center vscreen space-y-4">
+            <label className="text-black">1:00 minutes left</label>
 
-          {/* CANCEL -> BACK TO SCREEN 1 */}
-          <button
-            type="button"
-            onClick={handleToggle}
-            className="bg-gray-400 text-white font-semibold py-2 px-4 rounded hover:bg-gray-500 transition-colors"
-          >
-            Cancel
-          </button>
+            {/* CANCEL -> BACK TO SCREEN 1 */}
+            <button
+              type="button"
+              onClick={handleToggle}
+              className="bg-gray-400 text-white font-semibold py-2 px-4 rounded hover:bg-gray-500 transition-colors"
+            >
+              Try logging in with another method
+            </button>
+          </div>
         </div>
       )}
     </div>
