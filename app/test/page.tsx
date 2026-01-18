@@ -10,11 +10,12 @@ import ResumeEditorPage from "../ResumeEditorPage";
 import FaceScanPage from "../FaceScanPage";
 import ShoutGamePage from "../ShoutGamePage";
 import ProfRatingPage from "../ProfRatingPage";
+import EmailReplyPage from "../EmailReplyPage";
 
 const LinkedInPage = () => {
   return (
     <div>
-        <ProfRatingPage />
+        <EmailReplyPage />
     </div>
   );
 };

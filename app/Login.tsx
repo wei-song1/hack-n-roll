@@ -18,6 +18,7 @@ import ResumeEditorPage from "./ResumeEditorPage";
 import FaceScanPage from "./FaceScanPage";
 import ShoutGamePage from "./ShoutGamePage";
 import ProfRatingPage from "./ProfRatingPage";
+import EmailReplyPage from "./EmailReplyPage";
 
 interface LoginProps {
   showScreen2: boolean;
@@ -72,6 +73,8 @@ function Login({
         return <ShoutGamePage onSuccess={onGameSuccess} />;
       case 14:
         return <ProfRatingPage onSuccess={onGameSuccess} />;
+      case 15:
+        return <EmailReplyPage onSuccess={onGameSuccess} />;
       default:
         return null;
     }
