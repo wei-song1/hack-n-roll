@@ -178,7 +178,7 @@ const ShoutGamePage: React.FC<ShoutGamePageProps> = ({ onSuccess }) => {
         )}
         {hasMic && !hasShouted && (
           <p className="text-gray-600">
-            Shout, clap, or make noise into your microphone…
+            Please shout into the microphone
           </p>
         )}
         {hasShouted && (
