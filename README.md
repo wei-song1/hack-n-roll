@@ -1,4 +1,4 @@
-# Unauthentication
+# Unauthenticator
 ## The Future Of Useless Authentication App
 Created as part of Hack & Roll 2026 by Lim Wei Song.
 

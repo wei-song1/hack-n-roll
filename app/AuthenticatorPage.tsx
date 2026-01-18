@@ -18,9 +18,14 @@ const AuthenticatorPage = () => {
                 <h2 className="text-black text-2xl">
                 67
                 </h2>
+                <div className="h-10"></div>
+                
             </div>
-
+        
             <div className="h-10" />
+            <label className="block w-full text-center text-gray-500 text-sm">
+  Hint: Authenticator app is on the bottom left
+</label>
         </div>
     );
 };
