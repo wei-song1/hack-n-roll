@@ -25,7 +25,7 @@ const mockJobs: Job[] = [
     location: "Singapore · Hybrid",
     type: "Full-time",
     posted: "1 day ago",
-    logo: "/company1.png",
+    logo: "./company1.png",
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ const mockJobs: Job[] = [
     location: "Remote",
     type: "Contract",
     posted: "3 days ago",
-    logo: "/company2.png",
+    logo: "./company2.png",
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const mockJobs: Job[] = [
     location: "Singapore · On-site",
     type: "Full-time",
     posted: "1 week ago",
-    logo: "/company3.png",
+    logo: "./company3.png",
   },
 ];
 

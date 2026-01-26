@@ -28,7 +28,7 @@ const DropoutPage: React.FC<DropoutPageProps> = ({ onSuccess }) => {
 
       <div className="w-full relative">
         <Image
-          src="/dropoutForm.png"
+          src="./dropoutForm.png"
           alt="Dropout form"
           width={2818}
           height={1430}

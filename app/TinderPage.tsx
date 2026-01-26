@@ -25,7 +25,7 @@ const profiles: Profile[] = [
     bio: "CS student who spends too much time debugging and not enough time showering.",
     job: "Fakeversity of Singapore · Computer Science",
     distance: "2 km away",
-    image: "/person1.png",
+    image: "./person1.png",
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ const profiles: Profile[] = [
     bio: "Part-time barista, full-time business student. Will stab you in the back for grades.",
     job: "Campus Café · Barista",
     distance: "5 km away",
-    image: "/person2.png",
+    image: "./person2.png",
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const profiles: Profile[] = [
     bio: "Gym, grades, and gaming. Currently mastering all three (or trying to).",
     job: "Fakeversity Sports Centre · Student",
     distance: "1 km away",
-    image: "/person3.png",
+    image: "./person3.png",
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const profiles: Profile[] = [
     bio: "Loves long walks to the lecture hall and short walks to the fridge.",
     job: "Fakeversity of Singapore · Business",
     distance: "3 km away",
-    image: "/person4.png",
+    image: "./person4.png",
   },
   {
     id: 5,
@@ -61,7 +61,7 @@ const profiles: Profile[] = [
     bio: "Looking to feel young again.",
     job: "Fakeversity of Singapore · Professor",
     distance: "0.5 km away",
-    image: "/person5.png",
+    image: "./person5.png",
   },
 ];
 

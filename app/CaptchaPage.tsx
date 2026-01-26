@@ -13,9 +13,9 @@ type CaptchaOption = {
 };
 
 const captchas: CaptchaOption[] = [
-  { src: "/cs1101s.png", answer: "cs1101s" },
-  { src: "/cs1231s.png", answer: "cs1231s" },
-  { src: "/cs1010s.jpg", answer: "cs1010s" },
+  { src: "./cs1101s.png", answer: "cs1101s" },
+  { src: "./cs1231s.png", answer: "cs1231s" },
+  { src: "./cs1010s.jpg", answer: "cs1010s" },
 ];
 
 const getRandomCaptcha = (): CaptchaOption => {

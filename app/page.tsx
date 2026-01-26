@@ -66,7 +66,7 @@ export default function Home() {
       <div className="w-70/100 bg-gray-100 flex items-center justify-center">
         <div className="relative w-full h-full overflow-hidden">
           <Image
-            src="/banner.png"
+            src="./banner.png"
             alt="Profile"
             fill
             className="object-cover"

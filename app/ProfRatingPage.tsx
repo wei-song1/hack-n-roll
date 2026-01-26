@@ -60,7 +60,7 @@ const ProfRatingPage: React.FC<ProfRatingPageProps> = ({ onSuccess }) => {
           <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gray-300">
             {/* Replace src with your actual prof image if you have one */}
             <Image
-              src="/person5.png"
+              src="./person5.png"
               alt="Professor"
               fill
               className="object-cover"

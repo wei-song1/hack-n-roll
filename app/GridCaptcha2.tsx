@@ -12,22 +12,22 @@ const GridCaptcha: React.FC<GridCaptchaProps> = ({ onSuccess }) => {
   const [result, setResult] = useState<"correct" | "incorrect" | null>(null);
 
   const images = [
-    "/1-column-1.png",
-    "/1-column-2.png",
-    "/1-column-3.png",
-    "/1-column-4.png",
-    "/2-column-1.png",
-    "/2-column-2.png",
-    "/2-column-3.png",
-    "/2-column-4.png",
-    "/3-column-1.png",
-    "/3-column-2.png",
-    "/3-column-3.png",
-    "/3-column-4.png",
-    "/4-column-1.png",
-    "/4-column-2.png",
-    "/4-column-3.png",
-    "/4-column-4.png",
+    "./1-column-1.png",
+    "./1-column-2.png",
+    "./1-column-3.png",
+    "./1-column-4.png",
+    "./2-column-1.png",
+    "./2-column-2.png",
+    "./2-column-3.png",
+    "./2-column-4.png",
+    "./3-column-1.png",
+    "./3-column-2.png",
+    "./3-column-3.png",
+    "./3-column-4.png",
+    "./4-column-1.png",
+    "./4-column-2.png",
+    "./4-column-3.png",
+    "./4-column-4.png",
   ];
 
   // Only indices 0, 4, 5, 8, 9 are allowed.

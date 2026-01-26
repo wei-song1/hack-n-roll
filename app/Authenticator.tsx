@@ -33,7 +33,7 @@ function Authenticator({ isActive, onSuccess }: AuthenticatorProps) {
           <div className="w-90 h-14 bg-blue-500 rounded-t-lg flex items-center justify-center">
             <Image
               className="dark:invert"
-              src="/hamburger-svgrepo-com.svg"
+              src="./hamburger-svgrepo-com.svg"
               alt="Menu"
               width={24}
               height={24}
@@ -45,7 +45,7 @@ function Authenticator({ isActive, onSuccess }: AuthenticatorProps) {
             <div className="w-5" />
             <Image
               className="dark:invert"
-              src="/magnifying-glass-backup-svgrepo-com.svg"
+              src="./magnifying-glass-backup-svgrepo-com.svg"
               alt="Search"
               width={28}
               height={28}
@@ -53,7 +53,7 @@ function Authenticator({ isActive, onSuccess }: AuthenticatorProps) {
             <div className="w-5" />
             <Image
               className="dark:invert"
-              src="/plus-large-svgrepo-com.svg"
+              src="./plus-large-svgrepo-com.svg"
               alt="Add"
               width={28}
               height={28}
@@ -100,7 +100,7 @@ function Authenticator({ isActive, onSuccess }: AuthenticatorProps) {
         }}
       >
         <Image
-          src="/AppIcon@2x.png"
+          src="./AppIcon@2x.png"
           alt="Authenticator app icon"
           width={84}
           height={84}
